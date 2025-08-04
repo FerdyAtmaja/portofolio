@@ -99,13 +99,13 @@ const Projects: React.FC = () => {
           <div className="inline-flex p-1 bg-black/30 backdrop-blur-sm rounded-xl border border-yellow-500/20">
             <button
               onClick={() => setActiveTab('projects')}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${activeTab === 'projects' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 focus:outline-none ${activeTab === 'projects' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
             >
               Featured Projects
             </button>
             <button
               onClick={() => setActiveTab('articles')}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${activeTab === 'articles' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 focus:outline-none ${activeTab === 'articles' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
             >
               Articles & Insights
             </button>

@@ -16,7 +16,7 @@ const Skills: React.FC = () => {
     { name: 'Laravel', logoPath: '/logos/laravel.svg' },
     { name: 'Java', logoPath: '/logos/java.svg' },
     { name: 'Go', logoPath: '/logos/go.svg' },
-    { name: 'Flask', logoPath: '/logos/flask.svg' },
+    { name: 'Node', logoPath: '/logos/node.svg' },
   ];
 
   const softSkills = [
@@ -91,19 +91,19 @@ const Skills: React.FC = () => {
           <div className="inline-flex p-1 bg-black/30 backdrop-blur-sm rounded-xl border border-yellow-500/20">
             <button
               onClick={() => setActiveTab('technical')}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${activeTab === 'technical' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 focus:outline-none ${activeTab === 'technical' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
             >
               Technical Skills
             </button>
             <button
               onClick={() => setActiveTab('soft')}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${activeTab === 'soft' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 focus:outline-none ${activeTab === 'soft' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
             >
               Soft Skills
             </button>
             <button
               onClick={() => setActiveTab('learning')}
-              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${activeTab === 'learning' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
+              className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 focus:outline-none ${activeTab === 'learning' ? 'bg-yellow-500 text-black' : 'text-gray-300 hover:text-white'}`}
             >
               Currently Learning
             </button>
