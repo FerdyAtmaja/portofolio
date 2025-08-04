@@ -7,9 +7,15 @@ const Hero: React.FC = () => {
   };
 
   const scrollToProject = () => {
-    const element = document.getElementById('projects');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    try {
+      const element = document.getElementById('projects');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        console.warn('Projects section not found');
+      }
+    } catch (error) {
+      console.error('Error scrolling to projects:', error);
     }
   };
 
@@ -142,10 +148,10 @@ const Hero: React.FC = () => {
                   
                   {/* Social Links */}
                   <div className="flex justify-center space-x-4 pt-4">
-                    <a href="https://github.com/ferdyatmaja" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500/20 transition-colors">
+                    <a href="https://github.com/ferdyatmaja" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500/20 transition-colors">
                       <Github className="w-5 h-5 text-yellow-500" />
                     </a>
-                    <a href="https://linkedin.com/in/ferdy-atmaja" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500/20 transition-colors">
+                    <a href="https://linkedin.com/in/ferdy-atmaja" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-yellow-500/20 transition-colors">
                       <Linkedin className="w-5 h-5 text-yellow-500" />
                     </a>
                   </div>

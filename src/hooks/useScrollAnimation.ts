@@ -10,23 +10,43 @@ export const useScrollAnimation = (options?: IntersectionObserverInit) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
+    if (!('IntersectionObserver' in window)) {
+      setIsVisible(true);
+      return;
+    }
+
+    let observer: IntersectionObserver;
+    
+    try {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        },
+        {
+          threshold: 0.1,
+          ...options,
         }
-      },
-      {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-        ...options,
-      }
-    );
+      );
 
-    const currentElement = elementRef.current;
-    if (currentElement) observer.observe(currentElement);
+      const currentElement = elementRef.current;
+      if (currentElement) observer.observe(currentElement);
 
-    return () => currentElement && observer.unobserve(currentElement);
+      return () => {
+        if (currentElement && observer) {
+          try {
+            observer.unobserve(currentElement);
+          } catch (error) {
+            console.warn('Failed to unobserve element:', error);
+          }
+        }
+      };
+    } catch (error) {
+      console.warn('IntersectionObserver failed:', error);
+      setIsVisible(true);
+    }
   }, [options]);
 
   return [elementRef, isVisible] as const;

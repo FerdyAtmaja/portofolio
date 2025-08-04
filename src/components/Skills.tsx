@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useScrollAnimation } from '../hooks';
 import { Gauge, Brain, Lightbulb, Users } from 'lucide-react';
 import { technicalSkills, softSkills, currentlyLearning } from '../data/skills';
 
-const Skills: React.FC = () => {
+const Skills: React.FC = React.memo(() => {
   const [sectionRef, isVisible] = useScrollAnimation({ threshold: 0.1 });
   const [activeTab, setActiveTab] = useState('technical');
 
@@ -55,7 +55,7 @@ const Skills: React.FC = () => {
         </div>
 
         {/* Technical Skills Tab */}
-        {activeTab === 'technical' && (
+        {useMemo(() => activeTab === 'technical' && (
           <div className="max-w-6xl mx-auto">
             <div className="space-y-12">
               {/* First row - 5 items */}
@@ -135,10 +135,10 @@ const Skills: React.FC = () => {
               </div>
             </div>
           </div>
-        )}
+        ), [activeTab])}
 
         {/* Soft Skills Tab */}
-        {activeTab === 'soft' && (
+        {useMemo(() => activeTab === 'soft' && (
           <div className="max-w-6xl mx-auto">
             {/* Skills Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -160,10 +160,10 @@ const Skills: React.FC = () => {
               ))}
             </div>
           </div>
-        )}
+        ), [activeTab])}
         
         {/* Currently Learning Tab */}
-        {activeTab === 'learning' && (
+        {useMemo(() => activeTab === 'learning' && (
           <div className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {currentlyLearning.map((tech) => (
@@ -200,10 +200,10 @@ const Skills: React.FC = () => {
               <p className="text-yellow-500 mt-2">— Brian Herbert</p>
             </div>
           </div>
-        )}
+        ), [activeTab])}
       </div>
     </section>
   );
-};
+});
 
 export default Skills;

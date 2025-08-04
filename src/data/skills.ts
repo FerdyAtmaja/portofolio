@@ -27,7 +27,7 @@ export const technicalSkills: TechnicalSkill[] = [
   { name: 'Node', logoPath: '/logos/node.svg' },
   { name: 'Tailwind CSS', logoPath: '/logos/tailwind.svg' },
   { name: 'MySQL', logoPath: '/logos/mysql.svg' },
-  { name: 'Postgresql', logoPath: '/logos/postgresql.svg' },
+  { name: 'PostgreSQL', logoPath: '/logos/postgresql.svg' },
   { name: 'GitHub', logoPath: '/logos/github.svg' },
   { name: 'Laravel', logoPath: '/logos/laravel.svg' },
 ];

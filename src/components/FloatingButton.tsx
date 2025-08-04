@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { MessageCircle } from 'lucide-react';
+import { throttle } from '../utils/throttle';
 
 const FloatingButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+  const throttledScrollHandler = useMemo(
+    () => throttle(() => setIsVisible(window.pageYOffset > 300), 100),
+    []
+  );
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+  useEffect(() => {
+    window.addEventListener('scroll', throttledScrollHandler);
+    return () => window.removeEventListener('scroll', throttledScrollHandler);
+  }, [throttledScrollHandler]);
 
   const scrollToContact = () => {
     const element = document.getElementById('contact');
