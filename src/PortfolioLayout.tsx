@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import FloatingButton from './components/FloatingButton';
 
 interface PortfolioLayoutProps {
@@ -13,7 +13,7 @@ const PortfolioLayout: React.FC<PortfolioLayoutProps> = ({ children }) => {
       <Navbar />
       <main>{children}</main>
       <FloatingButton />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
