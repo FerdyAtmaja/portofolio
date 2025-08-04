@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
                 onClick={downloadCV}
                 className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-yellow-500/25 hover:scale-105 focus:outline-none"
               >
-                <Download className="w-5 h-5 mr-2" />
+                <Download className="w-5 h-5 mr-2 relative z-10" />
                 <span className="relative z-10">Download CV</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-yellow-500 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </button>
