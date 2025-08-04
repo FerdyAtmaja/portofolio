@@ -3,17 +3,11 @@ import { ChevronDown, Download, MapPin, Mail, Github, Linkedin } from 'lucide-re
 
 const Hero: React.FC = () => {
   const downloadCV = () => {
-    // Replace with your actual CV file path
-    const link = document.createElement('a');
-    link.href = '/cv/Ferdy_Atmaja_CV.pdf';
-    link.download = 'Ferdy_Atmaja_CV.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open('https://drive.google.com/file/d/10SdSMaop_Tkddn9jhL4adzHTKMrDV--L/view?usp=sharing', '_blank');
   };
 
-  const scrollToAbout = () => {
-    const element = document.getElementById('about');
+  const scrollToProject = () => {
+    const element = document.getElementById('projects');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -87,7 +81,7 @@ const Hero: React.FC = () => {
               </button>
               
               <button
-                onClick={scrollToAbout}
+                onClick={scrollToProject}
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-yellow-500 border-2 border-yellow-500/50 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500 transition-all duration-300"
               >
                 <span>View My Work</span>
@@ -167,7 +161,7 @@ const Hero: React.FC = () => {
         
         {/* Scroll Indicator */}
         <button 
-          onClick={scrollToAbout}
+          onClick={scrollToProject}
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hover:text-yellow-400 transition-colors duration-200 cursor-pointer focus:outline-none"
           aria-label="Scroll to About section"
         >

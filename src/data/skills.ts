@@ -1,4 +1,4 @@
-import { LucideIcon, Rocket, Cpu, Share2, Globe, Bot, Brain, Users, MessageCircle, Clock, Lightbulb, Target, Zap, BookOpen } from 'lucide-react';
+import { LucideIcon, Rocket, Cpu, Share2, Globe, Brain, Users, MessageCircle, Clock, Lightbulb, Target, Zap, BookOpen } from 'lucide-react';
 
 export interface TechnicalSkill {
   name: string;
@@ -21,15 +21,15 @@ export interface LearningSkill {
 }
 
 export const technicalSkills: TechnicalSkill[] = [
-  { name: 'React', logoPath: '/logos/react.svg' },
   { name: 'Python', logoPath: '/logos/python.svg' },
-  { name: 'MySQL', logoPath: '/logos/mysql.svg' },
-  { name: 'GitHub', logoPath: '/logos/github.svg' },
-  { name: 'Tailwind CSS', logoPath: '/logos/tailwind.svg' },
-  { name: 'Laravel', logoPath: '/logos/laravel.svg' },
-  { name: 'Java', logoPath: '/logos/java.svg' },
   { name: 'Go', logoPath: '/logos/go.svg' },
+  { name: 'AWS', logoPath: '/logos/aws.svg' },
   { name: 'Node', logoPath: '/logos/node.svg' },
+  { name: 'Tailwind CSS', logoPath: '/logos/tailwind.svg' },
+  { name: 'MySQL', logoPath: '/logos/mysql.svg' },
+  { name: 'Postgresql', logoPath: '/logos/postgresql.svg' },
+  { name: 'GitHub', logoPath: '/logos/github.svg' },
+  { name: 'Laravel', logoPath: '/logos/laravel.svg' },
 ];
 
 export const softSkills: SoftSkill[] = [
@@ -93,33 +93,27 @@ export const softSkills: SoftSkill[] = [
 
 export const currentlyLearning: LearningSkill[] = [
   {
-    name: 'Next.js 14',
-    progress: 75,
-    description: 'Exploring App Router and Server Components for full-stack development.',
-    icon: Rocket
-  },
-  {
-    name: 'Rust',
+    name: 'AWS',
     progress: 40,
-    description: 'Focusing on performance, memory safety, and systems programming.',
-    icon: Cpu
-  },
-  {
-    name: 'Kubernetes',
-    progress: 60,
-    description: 'Learning container orchestration for scalable and resilient applications.',
-    icon: Share2
-  },
-  {
-    name: 'GraphQL',
-    progress: 80,
-    description: 'Building efficient and flexible APIs for modern applications.',
+    description: 'Learning cloud services, EC2, S3, Lambda, and serverless architecture.',
     icon: Globe
   },
   {
-    name: 'Web3',
+    name: 'Node.js with Hapi',
+    progress: 60,
+    description: 'Building robust backend APIs using Hapi.js framework and plugins.',
+    icon: Rocket
+  },
+  {
+    name: 'PostgreSQL',
     progress: 50,
-    description: 'Diving into decentralized applications and blockchain technology.',
-    icon: Bot
+    description: 'Mastering advanced database design, queries, and optimization techniques.',
+    icon: Share2
+  },
+  {
+    name: 'Go',
+    progress: 10,
+    description: 'Starting to learn Go programming language for high-performance backend systems.',
+    icon: Cpu
   }
 ];

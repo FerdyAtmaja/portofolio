@@ -79,17 +79,15 @@ const About: React.FC = () => {
               
               <div className="space-y-4 text-lg leading-relaxed relative z-10">
                 <p className="text-white">
-                  I'm a passionate <span className="text-yellow-500 font-semibold">Fresh Graduate</span> with a strong foundation in 
-                  <span className="text-yellow-500 font-semibold"> Full-Stack Development</span> and 
-                  <span className="text-yellow-500 font-semibold"> Machine Learning</span>, eager to apply my knowledge in real-world projects.
+                  I am a <span className="text-yellow-500 font-semibold">Fresh Graduate Developer</span> with a strong focus on 
+                  <span className="text-yellow-500 font-semibold"> Backend Programming</span> and 
+                  <span className="text-yellow-500 font-semibold"> Machine Learning</span>, driven by a passion for building intelligent systems that create real-world impact.
                 </p>
                 <p className="text-gray-300">
-                  Through academic projects and personal learning, I've developed skills in modern web technologies 
-                  like React, Node.js, and Python. I'm excited to contribute fresh perspectives and grow with a dynamic team.
+                  Through academic projects and independent learning, I have developed expertise in designing scalable backend architectures with Node.js and Python, and implementing machine learning models using TensorFlow, PyTorch, and scikit-learn.
                 </p>
                 <p className="text-gray-300">
-                  My <span className="text-yellow-500 font-semibold">INTP personality</span> drives me to approach problems analytically, 
-                  continuously learn new technologies, and create innovative solutions that make a difference.
+                  I am actively expanding my skills in Artificial Intelligence and backend technologies to deepen my expertise and stay current with industry trends. My <span className="text-yellow-500 font-semibold">INTP personality</span> empowers me to approach challenges analytically, embrace new technologies, and innovate with purpose.
                 </p>
               </div>
             </div>
@@ -103,9 +101,9 @@ const About: React.FC = () => {
                     <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-4">
                       <Code className="w-6 h-6 text-yellow-500" />
                     </div>
-                    <h4 className="text-xl font-bold text-white">Web Development</h4>
+                    <h4 className="text-xl font-bold text-white">Backend Development</h4>
                   </div>
-                  <p className="text-gray-400">Creating responsive, modern web applications with React, Next.js, and Node.js.</p>
+                  <p className="text-gray-400">Building secure server-side applications and REST APIs with Node.js and Python.</p>
                 </div>
                 
                 <div className="p-6 bg-black/40 backdrop-blur-sm rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/5">
@@ -113,9 +111,19 @@ const About: React.FC = () => {
                     <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-4">
                       <Brain className="w-6 h-6 text-yellow-500" />
                     </div>
-                    <h4 className="text-xl font-bold text-white">Machine Learning</h4>
+                    <h4 className="text-xl font-bold text-white">Machine Learning & AI</h4>
                   </div>
-                  <p className="text-gray-400">Building intelligent systems with TensorFlow, PyTorch, and scikit-learn.</p>
+                  <p className="text-gray-400">Designing and deploying intelligent models using TensorFlow and PyTorch.</p>
+                </div>
+                
+                <div className="p-6 bg-black/40 backdrop-blur-sm rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/5">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-4">
+                      <Layers className="w-6 h-6 text-yellow-500" />
+                    </div>
+                    <h4 className="text-xl font-bold text-white">Data Engineering</h4>
+                  </div>
+                  <p className="text-gray-400">Creating data pipelines and ETL processes for analytics and machine learning.</p>
                 </div>
                 
                 <div className="p-6 bg-black/40 backdrop-blur-sm rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/5">
@@ -125,17 +133,7 @@ const About: React.FC = () => {
                     </div>
                     <h4 className="text-xl font-bold text-white">Cloud Solutions</h4>
                   </div>
-                  <p className="text-gray-400">Deploying scalable applications on AWS, Google Cloud, and Azure.</p>
-                </div>
-                
-                <div className="p-6 bg-black/40 backdrop-blur-sm rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/5">
-                  <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-4">
-                      <Layers className="w-6 h-6 text-yellow-500" />
-                    </div>
-                    <h4 className="text-xl font-bold text-white">UI/UX Design</h4>
-                  </div>
-                  <p className="text-gray-400">Creating intuitive, beautiful interfaces with Figma and Adobe XD.</p>
+                  <p className="text-gray-400">Deploying scalable systems on AWS and Google Cloud</p>
                 </div>
               </div>
             </div>
