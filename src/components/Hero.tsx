@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 onClick={downloadCV}
-                className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-yellow-500/25 hover:scale-105"
+                className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-xl shadow-2xl transition-all duration-300 hover:shadow-yellow-500/25 hover:scale-105 focus:outline-none"
               >
                 <Download className="w-5 h-5 mr-2" />
                 <span className="relative z-10">Download CV</span>
@@ -82,7 +82,7 @@ const Hero: React.FC = () => {
               
               <button
                 onClick={scrollToProject}
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-yellow-500 border-2 border-yellow-500/50 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500 transition-all duration-300"
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-yellow-500 border-2 border-yellow-500/50 rounded-xl hover:bg-yellow-500/10 hover:border-yellow-500 transition-all duration-300 focus:outline-none"
               >
                 <span>View My Work</span>
               </button>

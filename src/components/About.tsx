@@ -84,10 +84,10 @@ const About: React.FC = () => {
                   <span className="text-yellow-500 font-semibold"> Machine Learning</span>, driven by a passion for building intelligent systems that create real-world impact.
                 </p>
                 <p className="text-gray-300">
-                  Through academic projects and independent learning, I have developed expertise in designing scalable backend architectures with Node.js and Python, and implementing machine learning models using TensorFlow, PyTorch, and scikit-learn.
+                  Through academic projects and independent learning, I have developed expertise in designing scalable backend architectures with Node.js and Python, and implementing machine learning algorithms including Naive Bayes classification, LDA topic modeling using Gensim, scikit-learn, etc.
                 </p>
                 <p className="text-gray-300">
-                  I am actively expanding my skills in Artificial Intelligence and backend technologies to deepen my expertise and stay current with industry trends. My <span className="text-yellow-500 font-semibold">INTP personality</span> empowers me to approach challenges analytically, embrace new technologies, and innovate with purpose.
+                  I am actively expanding my skills in Artificial Intelligence and backend technologies to deepen my expertise and stay current with industry trends. My <a href="https://www.16personalities.com/intp-personality" target="_blank" rel="noopener noreferrer" className="text-yellow-500 font-semibold hover:text-yellow-400 transition-colors duration-200 underline decoration-dotted underline-offset-2">INTP personality</a> empowers me to approach challenges analytically, embrace new technologies, and innovate with purpose.
                 </p>
               </div>
             </div>
@@ -113,7 +113,7 @@ const About: React.FC = () => {
                     </div>
                     <h4 className="text-xl font-bold text-white">Machine Learning & AI</h4>
                   </div>
-                  <p className="text-gray-400">Designing and deploying intelligent models using TensorFlow and PyTorch.</p>
+                  <p className="text-gray-400">Implementing classification algorithms and topic modeling using Naive Bayes, LDA with Gensim, scikit-learn, etc.</p>
                 </div>
                 
                 <div className="p-6 bg-black/40 backdrop-blur-sm rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-yellow-500/5">

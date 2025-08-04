@@ -140,142 +140,24 @@ const Skills: React.FC = () => {
         {/* Soft Skills Tab */}
         {activeTab === 'soft' && (
           <div className="max-w-6xl mx-auto">
-            {/* Skills Categories */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-              {/* Analytical Skills */}
-              <div className="space-y-4">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 flex items-center justify-center mx-auto mb-4">
-                    <Brain className="w-8 h-8 text-yellow-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Analytical</h3>
-                  <p className="text-gray-400 text-sm">Problem-solving & critical thinking</p>
-                </div>
-                {softSkills.filter(skill => skill.category === 'analytical').map((skill) => (
-                  <div 
-                    key={skill.name} 
-                    className="group bg-black/40 backdrop-blur-sm p-5 rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-3 group-hover:bg-yellow-500/20 transition-colors duration-300">
-                        <skill.icon className="w-5 h-5 text-yellow-500" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="text-lg font-semibold text-white group-hover:text-yellow-400 transition-colors duration-300">{skill.name}</h4>
-                          <span className="text-yellow-500 font-bold text-sm">{skill.level}%</span>
-                        </div>
-                        <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transition-all duration-500 group-hover:from-yellow-300 group-hover:to-yellow-500"
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
+            {/* Skills Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {softSkills.map((skill) => (
+                <div 
+                  key={skill.name} 
+                  className="group bg-black/40 backdrop-blur-sm rounded-xl border border-gray-700/50 hover:border-yellow-500/30 transition-all duration-300 p-6"
+                >
+                  <div className="flex items-start">
+                    <div className="w-12 h-12 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-4 flex-shrink-0 group-hover:bg-yellow-500/20 transition-colors duration-300">
+                      <skill.icon className="w-6 h-6 text-yellow-500" />
                     </div>
-                    <p className="text-gray-400 text-sm ml-13 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {skill.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Interpersonal Skills */}
-              <div className="space-y-4">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-yellow-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Interpersonal</h3>
-                  <p className="text-gray-400 text-sm">Communication & collaboration</p>
-                </div>
-                {softSkills.filter(skill => skill.category === 'interpersonal').map((skill) => (
-                  <div 
-                    key={skill.name} 
-                    className="group bg-black/40 backdrop-blur-sm p-5 rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-3 group-hover:bg-yellow-500/20 transition-colors duration-300">
-                        <skill.icon className="w-5 h-5 text-yellow-500" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="text-lg font-semibold text-white group-hover:text-yellow-400 transition-colors duration-300">{skill.name}</h4>
-                          <span className="text-yellow-500 font-bold text-sm">{skill.level}%</span>
-                        </div>
-                        <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transition-all duration-500 group-hover:from-yellow-300 group-hover:to-yellow-500"
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-semibold text-white group-hover:text-yellow-400 transition-colors duration-300 mb-3">{skill.name}</h4>
+                      <p className="text-gray-400 text-sm leading-relaxed">{skill.description}</p>
                     </div>
-                    <p className="text-gray-400 text-sm ml-13 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {skill.description}
-                    </p>
                   </div>
-                ))}
-              </div>
-
-              {/* Personal Skills */}
-              <div className="space-y-4">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 flex items-center justify-center mx-auto mb-4">
-                    <Lightbulb className="w-8 h-8 text-yellow-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white mb-2">Personal</h3>
-                  <p className="text-gray-400 text-sm">Self-management & growth</p>
                 </div>
-                {softSkills.filter(skill => skill.category === 'personal').map((skill) => (
-                  <div 
-                    key={skill.name} 
-                    className="group bg-black/40 backdrop-blur-sm p-5 rounded-xl border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center mr-3 group-hover:bg-yellow-500/20 transition-colors duration-300">
-                        <skill.icon className="w-5 h-5 text-yellow-500" />
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center justify-between mb-1">
-                          <h4 className="text-lg font-semibold text-white group-hover:text-yellow-400 transition-colors duration-300">{skill.name}</h4>
-                          <span className="text-yellow-500 font-bold text-sm">{skill.level}%</span>
-                        </div>
-                        <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                          <div 
-                            className="h-full bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-full transition-all duration-500 group-hover:from-yellow-300 group-hover:to-yellow-500"
-                            style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-gray-400 text-sm ml-13 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {skill.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            {/* Professional Summary */}
-            <div className="bg-gradient-to-r from-black/60 to-black/40 backdrop-blur-sm rounded-2xl border border-yellow-500/20 p-8 text-center">
-              <div className="flex items-center justify-center mb-6">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 flex items-center justify-center mr-4">
-                  <Gauge className="w-8 h-8 text-yellow-500" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">Professional Approach</h3>
-              </div>
-              <p className="text-gray-300 text-lg leading-relaxed max-w-4xl mx-auto">
-                I combine analytical thinking with strong interpersonal skills to deliver innovative solutions. 
-                My approach focuses on understanding complex problems, collaborating effectively with teams, 
-                and continuously learning to stay ahead in the rapidly evolving tech landscape.
-              </p>
-              <div className="mt-6 text-sm text-yellow-500">
-                <span className="inline-flex items-center bg-yellow-500/10 px-3 py-1 rounded-full">
-                  <Brain className="w-4 h-4 mr-2" />
-                  INTP Personality - The Innovative Problem Solver
-                </span>
-              </div>
+              ))}
             </div>
           </div>
         )}

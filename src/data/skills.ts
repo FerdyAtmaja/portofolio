@@ -7,7 +7,7 @@ export interface TechnicalSkill {
 
 export interface SoftSkill {
   name: string;
-  level: number;
+  level: 'Excellent' | 'Advanced' | 'Proficient' | 'Developing';
   description: string;
   icon: LucideIcon;
   category: 'analytical' | 'interpersonal' | 'personal';
@@ -35,57 +35,57 @@ export const technicalSkills: TechnicalSkill[] = [
 export const softSkills: SoftSkill[] = [
   { 
     name: 'Problem Solving', 
-    level: 95, 
+    level: 'Excellent',
     description: 'Breaking down complex technical challenges into manageable solutions',
     icon: Brain,
     category: 'analytical'
   },
   { 
     name: 'Critical Thinking', 
-    level: 90, 
-    description: 'Evaluating multiple approaches to find optimal technical solutions',
+    level: 'Excellent',
+    description: 'Evaluating multiple approaches to identify optimal solutions',
     icon: Target,
     category: 'analytical'
   },
   { 
-    name: 'Communication', 
-    level: 85, 
-    description: 'Explaining technical concepts clearly to diverse audiences',
+    name: 'Technical Communication', 
+    level: 'Advanced',
+    description: 'Explaining complex technical concepts clearly to diverse audiences',
     icon: MessageCircle,
     category: 'interpersonal'
   },
   { 
-    name: 'Collaboration', 
-    level: 85, 
-    description: 'Working effectively in cross-functional development teams',
+    name: 'Team Collaboration', 
+    level: 'Advanced',
+    description: 'Working effectively in cross-functional teams and agile environments',
     icon: Users,
     category: 'interpersonal'
   },
   { 
     name: 'Adaptability', 
-    level: 90, 
-    description: 'Quickly learning new technologies and adjusting to project changes',
+    level: 'Excellent',
+    description: 'Quickly adjusting to new technologies and project requirements',
     icon: Zap,
     category: 'personal'
   },
   { 
-    name: 'Self-Learning', 
-    level: 95, 
-    description: 'Continuously acquiring new skills through independent research',
+    name: 'Continuous Learning', 
+    level: 'Excellent',
+    description: 'Proactively acquiring new skills and staying current with trends',
     icon: BookOpen,
     category: 'personal'
   },
   { 
     name: 'Innovation', 
-    level: 88, 
-    description: 'Creating creative solutions and improving existing processes',
+    level: 'Advanced',
+    description: 'Developing creative solutions and improving existing processes',
     icon: Lightbulb,
     category: 'analytical'
   },
   { 
-    name: 'Time Management', 
-    level: 82, 
-    description: 'Prioritizing tasks and meeting project deadlines consistently',
+    name: 'Project Management', 
+    level: 'Proficient',
+    description: 'Organizing tasks, managing timelines, and delivering projects',
     icon: Clock,
     category: 'personal'
   }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ExternalLink, Github, BookOpen, Calendar, ArrowRight, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, Github, BookOpen, Calendar, ArrowRight, X, ChevronLeft, ChevronRight, ChevronsDown, ChevronsUp } from 'lucide-react';
 import { useScrollAnimation } from '../hooks';
 import { articles } from '../data/articles';
+import { featuredProjects } from '../data/projects';
 
 // Add custom scrollbar styles
 const customScrollbarStyles = `
@@ -43,37 +44,33 @@ const Projects: React.FC = () => {
   const [activeTab, setActiveTab] = useState('projects');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showMoreProjects, setShowMoreProjects] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
+
+  const truncateText = (text: string, maxLength: number) => {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+  };
+
+  const limitTechnologies = (technologies: string[], maxCount: number = 3) => {
+    if (technologies.length <= maxCount) {
+      return { visible: technologies, remaining: 0 };
+    }
+    return {
+      visible: technologies.slice(0, maxCount),
+      remaining: technologies.length - maxCount
+    };
+  };
+
+  const openProjectModal = (project: any) => {
+    setSelectedProject(project);
+    setIsProjectModalOpen(true);
+  };
   const articlesPerPage = 4;
 
-  const featuredProjects = [
-    {
-      id: 1,
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce solution with React, Node.js, and MongoDB. Features include payment integration, inventory management, and admin dashboard.",
-      image: "https://images.pexels.com/photos/5632382/pexels-photo-5632382.jpeg?auto=compress&cs=tinysrgb&w=500",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      demoUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      id: 2,
-      title: "AI Image Recognition",
-      description: "Machine learning application for image classification using TensorFlow and Python. Achieves 95% accuracy on custom datasets.",
-      image: "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=500",
-      technologies: ["Python", "TensorFlow", "OpenCV", "Flask"],
-      demoUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      id: 3,
-      title: "Task Management App",
-      description: "Collaborative project management tool with real-time updates, team collaboration features, and advanced analytics dashboard.",
-      image: "https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=500",
-      technologies: ["Vue.js", "Firebase", "Socket.io", "Chart.js"],
-      demoUrl: "#",
-      githubUrl: "#"
-    }
-  ];
+
+
+  const displayedProjects = showMoreProjects ? featuredProjects : featuredProjects.slice(0, 3);
 
   return (
     <section id="projects" ref={sectionRef} className={`py-24 bg-gradient-to-b from-black to-gray-900 ${
@@ -114,59 +111,169 @@ const Projects: React.FC = () => {
 
         {/* Featured Projects Tab */}
         {activeTab === 'projects' && (
-          <div className="grid lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="group relative bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-500/10"
-              >
-                <div className="aspect-video overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                </div>
-                
-                <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
-                    {project.title}
-                  </h3>
-                  
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+          <div className="space-y-12">
+            <div className="grid lg:grid-cols-3 gap-8">
+              {featuredProjects.slice(0, 3).map((project) => (
+                <div
+                  key={project.id}
+                  onClick={() => openProjectModal(project)}
+                  className="group relative bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-500/10 cursor-pointer"
+                >
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                    <span className="text-yellow-400 font-medium text-sm">View Details</span>
+                  </div>
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
                   
-                  <div className="flex space-x-3 pt-4">
+                  <div className="p-6 space-y-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
+                      {project.title}
+                    </h3>
+                    
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {truncateText(project.description, 80)}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-2">
+                      {(() => {
+                        const { visible, remaining } = limitTechnologies(project.technologies);
+                        return (
+                          <>
+                            {visible.map((tech) => (
+                              <span
+                                key={tech}
+                                className="px-2 py-1 text-xs bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                            {remaining > 0 && (
+                              <span className="px-2 py-1 text-xs bg-gray-500/10 text-gray-400 rounded-full border border-gray-500/20">
+                                +{remaining} more
+                              </span>
+                            )}
+                          </>
+                        );
+                      })()
+                    }
+                    </div>
+                    
+
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Additional Projects with Animation */}
+            <div className={`overflow-hidden transition-all duration-1000 ease-out ${
+              showMoreProjects ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+            }`}>
+              <div className="grid lg:grid-cols-3 gap-8 pt-4">
+                {featuredProjects.slice(3).map((project, index) => (
+                  <div
+                    key={project.id}
+                    onClick={() => openProjectModal(project)}
+                    className={`group relative bg-black/40 backdrop-blur-sm rounded-2xl overflow-hidden border border-yellow-500/10 hover:border-yellow-500/30 transition-all duration-700 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-500/10 transform cursor-pointer ${
+                      showMoreProjects 
+                        ? 'translate-y-0 opacity-100' 
+                        : 'translate-y-12 opacity-0'
+                    }`}
+                    style={{
+                      transitionDelay: showMoreProjects ? `${index * 200}ms` : '0ms'
+                    }}
+                  >
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                      <span className="text-yellow-400 font-medium text-sm">View Details</span>
+                    </div>
+                    <div className="aspect-video overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    
+                    <div className="p-6 space-y-4">
+                      <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">
+                        {project.title}
+                      </h3>
+                      
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {truncateText(project.description, 80)}
+                      </p>
+                      
+                      <div className="flex flex-wrap gap-2">
+                        {(() => {
+                          const { visible, remaining } = limitTechnologies(project.technologies);
+                          return (
+                            <>
+                              {visible.map((tech) => (
+                                <span
+                                  key={tech}
+                                  className="px-2 py-1 text-xs bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                              {remaining > 0 && (
+                                <span className="px-2 py-1 text-xs bg-gray-500/10 text-gray-400 rounded-full border border-gray-500/20">
+                                  +{remaining} more
+                                </span>
+                              )}
+                            </>
+                          );
+                        })()
+                      }
+                      </div>
+                      
+
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Show More / Close / GitHub Link */}
+            <div className="text-center space-y-6">
+              {!showMoreProjects ? (
+                <button
+                  onClick={() => setShowMoreProjects(true)}
+                  className="inline-flex items-center space-x-2 px-4 py-2 text-yellow-500 hover:text-yellow-400 transition-all duration-300 text-sm font-medium rounded-md hover:bg-yellow-500/5 focus:outline-none"
+                >
+                  <span>Show more</span>
+                  <ChevronsDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-0.5" />
+                </button>
+              ) : (
+                <div className="flex flex-col items-center space-y-6">
+                  <div className="pb-2">
                     <a
-                      href={project.demoUrl}
-                      className="flex items-center space-x-2 px-3 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-medium rounded-lg hover:from-yellow-300 hover:to-yellow-500 transition-all duration-200 text-sm"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      <span>Demo</span>
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      className="flex items-center space-x-2 px-3 py-2 border border-yellow-500/50 text-yellow-500 rounded-lg hover:bg-yellow-500/10 transition-all duration-200 text-sm"
+                      href="https://github.com/FerdyAtmaja?tab=repositories"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-medium rounded-lg hover:from-yellow-300 hover:to-yellow-500 transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-yellow-500/25 text-sm"
                     >
                       <Github className="w-4 h-4" />
-                      <span>Code</span>
+                      <span>View More on GitHub</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                   </div>
+                  <button
+                    onClick={() => setShowMoreProjects(false)}
+                    className="inline-flex items-center space-x-2 px-4 py-2 text-yellow-500 hover:text-yellow-400 transition-all duration-300 text-sm font-medium rounded-md hover:bg-yellow-500/5 focus:outline-none"
+                  >
+                    <span>Show less</span>
+                    <ChevronsUp className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-0.5" />
+                  </button>
                 </div>
-              </div>
-            ))}
+              )}
+            </div>
           </div>
         )}
 
@@ -373,6 +480,99 @@ const Projects: React.FC = () => {
                   );
                 })()
               }
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Project Detail Modal */}
+        {isProjectModalOpen && selectedProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div 
+              className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+              onClick={() => setIsProjectModalOpen(false)}
+            ></div>
+            
+            <div className="relative bg-gray-900/90 backdrop-blur-md rounded-2xl border border-yellow-500/20 shadow-xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-20 h-20 bg-yellow-500/3 rounded-full blur-2xl"></div>
+              <div className="absolute -bottom-10 -left-10 w-20 h-20 bg-yellow-500/3 rounded-full blur-2xl"></div>
+              
+              <div className="flex items-center justify-between p-6 border-b border-yellow-500/15">
+                <h3 className="text-2xl font-bold text-white font-serif">
+                  {selectedProject.title}
+                </h3>
+                <button
+                  onClick={() => setIsProjectModalOpen(false)}
+                  className="p-2 rounded-lg bg-yellow-500/10 hover:bg-yellow-500/15 transition-colors duration-200"
+                >
+                  <X className="w-5 h-5 text-yellow-500" />
+                </button>
+              </div>
+              
+              <div className="p-6 overflow-y-auto max-h-[calc(90vh-140px)] custom-scrollbar">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="aspect-video overflow-hidden rounded-xl">
+                    <img
+                      src={selectedProject.image}
+                      alt={selectedProject.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="text-lg font-semibold text-yellow-400 mb-2">Description</h4>
+                      <p className="text-gray-300 leading-relaxed text-sm">
+                        {selectedProject.detailedDescription}
+                      </p>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-lg font-semibold text-yellow-400 mb-2">Technologies</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedProject.technologies.map((tech: string) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 text-xs bg-yellow-500/10 text-yellow-500 rounded-full border border-yellow-500/20"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-lg font-semibold text-yellow-400 mb-2">Key Features</h4>
+                      <ul className="space-y-1">
+                        {selectedProject.features.map((feature: string, index: number) => (
+                          <li key={index} className="text-gray-300 text-sm flex items-center">
+                            <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-2"></span>
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    
+                    <div className="flex space-x-3 pt-4">
+                      {selectedProject.demoUrl && (
+                        <a
+                          href={selectedProject.demoUrl}
+                          className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-medium rounded-lg hover:from-yellow-300 hover:to-yellow-500 transition-all duration-200 text-sm"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          <span>Live Demo</span>
+                        </a>
+                      )}
+                      <a
+                        href={selectedProject.githubUrl}
+                        className="flex items-center space-x-2 px-4 py-2 border border-yellow-500/50 text-yellow-500 rounded-lg hover:bg-yellow-500/10 transition-all duration-200 text-sm"
+                      >
+                        <Github className="w-4 h-4" />
+                        <span>Source Code</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
