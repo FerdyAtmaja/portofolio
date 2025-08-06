@@ -557,6 +557,8 @@ const Projects: React.FC = () => {
                       {selectedProject.demoUrl && (
                         <a
                           href={selectedProject.demoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-medium rounded-lg hover:from-yellow-300 hover:to-yellow-500 transition-all duration-200 text-sm"
                         >
                           <ExternalLink className="w-4 h-4" />
@@ -565,6 +567,8 @@ const Projects: React.FC = () => {
                       )}
                       <a
                         href={selectedProject.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center space-x-2 px-4 py-2 border border-yellow-500/50 text-yellow-500 rounded-lg hover:bg-yellow-500/10 transition-all duration-200 text-sm"
                       >
                         <Github className="w-4 h-4" />
