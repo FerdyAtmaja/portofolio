@@ -5,7 +5,7 @@ export const featuredProjects = [
     description: "A classic Dr. Mario-style puzzle game built with vanilla JavaScript and modern web technologies.",
     detailedDescription: "Dr. Capsule is an addictive falling-block puzzle game where strategy meets speed! Drop colorful capsules to eliminate dangerous viruses by creating matches of 4 or more blocks. With 20 progressively challenging levels, each stage tests your puzzle-solving skills to the limit. Built with pure vanilla JavaScript, HTML5, and CSS3, featuring modular architecture, smooth animations, and retro pixel art aesthetics with modern polish.",
     image: "/images/projects/dr-capsule-game.png",
-    technologies: ["JavaScript", "HTML5", "CSS3", "DOM API"],
+    technologies: ["JavaScript", "HTML5", "CSS3", "DOM API", "Amazon Q"],
     features: ["20 Challenging Levels", "Chain Reactions", "Retro Pixel Art Style", "Responsive Design", "Level Selection", "Advanced Scoring System"],
     demoUrl: "https://ferdyatmaja.github.io/Dr-Capsule---Pill-Puzzle-Game/",
     githubUrl: "https://github.com/FerdyAtmaja/Dr-Capsule---Pill-Puzzle-Game"
