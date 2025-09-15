@@ -3,7 +3,7 @@ import { ChevronDown, Download, MapPin, Mail, Github, Linkedin } from 'lucide-re
 
 const Hero: React.FC = () => {
   const downloadCV = () => {
-    window.open('https://drive.google.com/file/d/10SdSMaop_Tkddn9jhL4adzHTKMrDV--L/view?usp=sharing', '_blank');
+    window.open('https://drive.google.com/file/d/1z_VbzSNoBF3ELZXly9Clzk8I3oVXbN5i/view?usp=sharing', '_blank');
   };
 
   const scrollToProject = () => {
