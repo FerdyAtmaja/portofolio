@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
               
               <div className="space-y-2">
                 <p className="text-2xl sm:text-3xl text-white font-light">
-                  Fresh Graduate Developer
+                  Software Developer
                 </p>
                 <p className="text-lg text-yellow-500 font-medium">
                   <a 
@@ -132,7 +132,7 @@ const Hero: React.FC = () => {
                 {/* Professional Info */}
                 <div className="text-center space-y-4">
                   <h3 className="text-xl font-bold text-white">Ferdy Atmaja</h3>
-                  <p className="text-yellow-500 font-medium">Fresh Graduate Developer</p>
+                  <p className="text-yellow-500 font-medium">Software Developer</p>
                   
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-4 py-4">

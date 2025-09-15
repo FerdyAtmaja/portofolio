@@ -72,7 +72,7 @@ const About: React.FC = () => {
               
               <div className="space-y-4 text-base leading-relaxed relative z-10">
                 <p className="text-white">
-                  I am a <span className="text-yellow-500 font-semibold">Fresh Graduate Developer</span> with a strong focus on 
+                  I am a <span className="text-yellow-500 font-semibold">Software Developer</span> with a strong focus on 
                   <span className="text-yellow-500 font-semibold"> Backend Programming</span> and 
                   <span className="text-yellow-500 font-semibold"> Machine Learning</span>, driven by a passion for building intelligent systems that create real-world impact.
                 </p>

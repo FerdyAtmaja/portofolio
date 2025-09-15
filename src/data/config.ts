@@ -9,7 +9,7 @@ export const NAVIGATION_SECTIONS = [
 
 export const PERSONAL_INFO = {
   name: 'Ferdy Atmaja',
-  title: 'Fresh Graduate Developer',
+  title: 'Software Developer',
   email: 'ferdy.atmaja308@gmail.com',
   linkedin: 'https://linkedin.com/in/ferdy-atmaja',
   github: 'https://github.com/ferdyatmaja',
