@@ -94,25 +94,25 @@ export const softSkills: SoftSkill[] = [
 export const currentlyLearning: LearningSkill[] = [
   {
     name: 'AWS',
-    progress: 40,
+    progress: 90,
     description: 'Learning cloud services, EC2, S3, Lambda, and serverless architecture.',
     icon: Globe
   },
   {
     name: 'Node.js with Hapi',
-    progress: 60,
+    progress: 95,
     description: 'Building robust backend APIs using Hapi.js framework and plugins.',
     icon: Rocket
   },
   {
     name: 'PostgreSQL',
-    progress: 50,
+    progress: 100,
     description: 'Mastering advanced database design, queries, and optimization techniques.',
     icon: Share2
   },
   {
     name: 'Go',
-    progress: 10,
+    progress: 40,
     description: 'Starting to learn Go programming language for high-performance backend systems.',
     icon: Cpu
   }

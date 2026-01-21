@@ -11,17 +11,28 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: '1',
+    type: 'work',
+    title: 'Project-Based Virtual Intern : Backend Developer',
+    company: 'Evermos x Rakamin Academy',
+    period: 'Dec. 2025 – Dec. 2025',
+    description: [
+      'Building a transactional e-commerce backend using Golang (Fiber) and MySQL.'
+    ],
+    technologies: ['Go', 'Fiber', 'MySQL', 'Postman', 'Swagger', 'RESTful API', 'JWT']
+  },
+  {
+    id: '2',
     type: 'training',
     title: 'Cyber Security (Fresh Graduate Academy)',
     company: 'Digitalent Kominfo – Program FGA',
-    period: 'Aug. 2025 – Sep. 2025',
+    period: 'Aug. 2025 – Nov. 2025',
     description: [
       'Mastered cybersecurity fundamentals and SIEM tools for network security and incident response'
     ],
     technologies: ['Linux', 'Python', 'SQL', 'SIEM', 'Network Security']
   },
   {
-    id: '2',
+    id: '3',
     type: 'training',
     title: 'Google Cloud Arcade',
     company: 'Dicoding x Google Cloud',
@@ -32,7 +43,7 @@ export const experiences: Experience[] = [
     technologies: ['Google Cloud Console', 'Compute Engine', 'Cloud Run', 'Cloud Storage', 'IAM']
   },
   {
-    id: '3',
+    id: '4',
     type: 'training',
     title: 'AI Productivity Training',
     company: 'Dicoding x AVPN',
@@ -43,18 +54,18 @@ export const experiences: Experience[] = [
     technologies: ['AI Productivity', 'Prompt Engineering', 'Workflow Automation']
   },
   {
-    id: '4',
+    id: '5',
     type: 'training',
     title: 'AWS Back-End Academy',
     company: 'Dicoding x Amazon Web Services',
-    period: 'May 2025 – Sep. 2025',
+    period: 'May 2025 – Jan. 2026',
     description: [
       'Developed scalable RESTful APIs with Hapi framework and integrated AWS services for distributed systems'
     ],
-    technologies: ['JavaScript', 'Node.js', 'Hapi', 'PostgreSQL', 'Redis', 'RabbitMQ', 'AWS Lambda', 'API Gateway', 'S3']
+    technologies: ['JavaScript', 'Node.js', 'Hapi.js', 'Express.js', 'PostgreSQL', 'Redis', 'RabbitMQ', 'RESTful API', 'Clean Architecture', 'Automation Testing', 'AWS', 'CI/CD', 'nginx', 'VPS Deployments']
   },
   {
-    id: '5',
+    id: '6',
     type: 'work',
     title: 'Data Mining Analyst',
     company: 'Laboratorium Solusi – UPN "Veteran" Jawa Timur',
@@ -65,7 +76,7 @@ export const experiences: Experience[] = [
     technologies: ['Python', 'Flask', 'MySQL', 'Naïve Bayes', 'LDA', 'API Development']
   },
   {
-    id: '6',
+    id: '7',
     type: 'work',
     title: 'Fullstack Developer (Internship)',
     company: 'PT. Antari Jaya Mandiri',
@@ -76,7 +87,7 @@ export const experiences: Experience[] = [
     technologies: ['PHP', 'MySQL', 'Web Development', 'Extreme Programming']
   },
   {
-    id: '7',
+    id: '8',
     type: 'training',
     title: 'Data Science Academy (MSIB Batch 4)',
     company: 'Cybertrend Data Academy',
