@@ -1,51 +1,27 @@
 # Portfolio Website – Ferdy Atmaja
 
+## Description
+Personal portfolio website created to showcase my professional experience, projects, skills, and contact information in one elegant and modern page.
 
-## 📌 Deskripsi
-Website portofolio pribadi ini dibuat untuk menampilkan pengalaman, projek, skill, dan kontak profesional saya dalam satu halaman elegan dan modern.
-
-## 🛠️ Fitur
-- Halaman Home dengan profil singkat
-- Halaman Projects yang menampilkan daftar projek dengan deskripsi dan link
-- Halaman Skills / Tech Stack dengan logo teknologi
-- Halaman Contact dengan informasi kontak
-- Desain responsif (mobile friendly)
-- Tema gelap elegan dengan aksen emas (dark-gold elegant theme)
-- Animasi smooth dan hover effects
+## Features
+- Home page with brief profile
+- Projects page displaying project list with descriptions and links
+- Skills / Tech Stack page with technology logos
+- Contact page with contact information
+- Responsive design (mobile friendly)
+- Elegant dark theme with gold accents (dark-gold elegant theme)
+- Smooth animations and hover effects
 - Floating contact button
 
-## 🔧 Tech Stack
+## Tech Stack
 - **Frontend**: React.js, TypeScript, Tailwind CSS
 - **Build Tool**: Vite
 - **Icons**: Lucide React
 - **Deployment**: Vercel 
 - **Others**: Custom hooks, Glassmorphism effects
 
-## 🚀 Instalasi dan Penggunaan Lokal
-
-1. **Clone repository**
-   ```bash
-   git clone https://github.com/ferdyatmaja/portofolio.git
-   cd portfolio-website
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Jalankan di local**
-   ```bash
-   npm run dev
-   ```
-
-4. **Akses di browser**
-   ```
-   http://localhost:5173
-   ```
-
-## 📬 Contact
-Jika ingin terhubung atau berdiskusi:
+## Contact
+If you want to connect or discuss:
 - **Email**: ferdy.atmaja308@gmail.com
 - **LinkedIn**: [LinkedIn Profile](https://linkedin.com/in/ferdy-atmaja)
 - **GitHub**: [GitHub Profile](https://github.com/ferdyatmaja)
